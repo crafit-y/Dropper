@@ -29,8 +29,6 @@ public class Dropper extends JavaPlugin {
         getLogger().info(ANSI_YELLOW + "[Dropper] Démarrage..." + ANSI_RESET);
         instance = this;
         saveDefaultConfig();
-        getLogger().info(ANSI_YELLOW + "[Dropper] Recherche de mis à jours..." + ANSI_RESET);
-        VersionChecker.checkForUpdate(this);
         // Initialisation du GameManager
         getLogger().info(ANSI_YELLOW + "---------------------------------------" + ANSI_RESET);
         getLogger().info(ANSI_YELLOW + "[Dropper] Création des managers..." + ANSI_RESET);
@@ -59,6 +57,8 @@ public class Dropper extends JavaPlugin {
         getLogger().info(ANSI_YELLOW + "---------------------------------------" + ANSI_RESET);
         getLogger().info(ANSI_GREEN + "[Dropper] Plugin activé avec succès !" + ANSI_RESET);
         getLogger().info(ANSI_YELLOW + "---------------------------------------" + ANSI_RESET);
+
+        VersionChecker.checkForUpdate(this);
     }
 
     @Override
