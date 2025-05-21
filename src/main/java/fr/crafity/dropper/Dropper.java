@@ -5,6 +5,7 @@ import fr.crafity.dropper.game.GameManager;
 import fr.crafity.dropper.listeners.*;
 import fr.crafity.dropper.util.CooldownManager;
 import fr.crafity.dropper.util.DropperTabCompleter;
+import fr.crafity.dropper.util.VersionChecker;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class Dropper extends JavaPlugin {
@@ -28,7 +29,8 @@ public class Dropper extends JavaPlugin {
         getLogger().info(ANSI_YELLOW + "[Dropper] Démarrage..." + ANSI_RESET);
         instance = this;
         saveDefaultConfig();
-
+        getLogger().info(ANSI_YELLOW + "[Dropper] Recherche de mis à jours..." + ANSI_RESET);
+        VersionChecker.checkForUpdate(this);
         // Initialisation du GameManager
         getLogger().info(ANSI_YELLOW + "---------------------------------------" + ANSI_RESET);
         getLogger().info(ANSI_YELLOW + "[Dropper] Création des managers..." + ANSI_RESET);
