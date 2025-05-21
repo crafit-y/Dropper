@@ -1,0 +1,247 @@
+# ==================================================
+# DROPPER BY CRAFITY_
+# Bien lire avant de faire bitizes ^^
+# ==================================================
+
+# --------------------
+# >> SPAWN <<
+# --------------------
+
+# Les coordonnées du spawn, utilisées pour la téléportation après le jeu
+# /!\ ATTENTION /!\ 'world: <le nom du monde>' est obligatoire si plusieurs mondes existent sur le serveur.
+spawn:
+  world: world # Valeur de base > world < (ne pas supprimer)
+  x: 27
+  y: 85
+  z: 11
+  yaw: 0.0    # Cela définit l’orientation horizontale du joueur (pas très important ^^)
+  pitch: 0.0  # Cela définit l’inclinaison verticale du joueur (également pas très important ^^)
+
+# --------------------
+# >> PLUGIN <<
+# --------------------
+
+# Le préfixe utilisé pour la majorité des messages du plugin
+# /!\ ATTENTION /!\ L’espace après le préfixe est nécessaire pour l’alignement et l’esthétique des messages
+prefix: "§3[§6Dropper§3]§r " # Valeur de base > "§3[§6Dropper§3]§r " < (ne pas supprimer)
+
+# Le Tab list du jeu est activé ?
+tab_list: true # Valeur de base > true < (ne pas supprimer)
+
+# Le scoreboard du jeu est activé ?
+# /!\ ATTENTION /!\ Respecter l'indentions des valeurs dans 'lines'
+
+# ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+# ⚙️ PLACEHOLDERS DISPONIBLES POUR LE SCOREBOARD
+# ➤ À utiliser dans la section `scoreboard.lines`
+# ➤ Les couleurs (ex: §6) sont permises
+# ➤ Les valeurs sont automatiquement remplacées pour chaque joueur
+# ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+
+# ── 📌 INFOS GÉNÉRALES ─────────────────────────────────────────────
+#  %player%            ➤ Nom du joueur
+#  %level%             ➤ Nom du niveau en cours
+#  %inRotation%        ➤ ✔ ou ✘ (le joueur est-il dans la rotation ?)
+#  %position%          ➤ Position dans la file (ex: 3)
+
+# ── ❤️ VIES / SAUTS / PERFECT DROPS ────────────────────────────────
+#  %lives%             ➤ Nombre de vies restantes
+#  %jumps%             ➤ Nombre de sauts effectués ce tour
+#  %perfect%           ➤ Nombre de Perfect Drops ce tour
+#  %superJump%         ➤ ✔ ou ✘ (le joueur a-t-il un Super Jump ?)
+#  %playerStatus%      ➤ Texte dynamique :
+#     └─ "C'est ton tour !" / "Super Jump ✦" / "Éliminé" / "Spectateur" / "En lice..."
+
+# ── ⏱️ TEMPS ESTIMÉ AVANT LE TOUR ──────────────────────────────────
+#  %eta%               ➤ Temps estimé avant son tour (en secondes) @DEPRECATED
+#  %etaPlayers%        ➤ Combien de joueurs doivent passer avant lui
+
+# ── 🎨 COULEURS / FORMATS PERSONNALISÉS (issus de GameManager.java) ─
+#  %cF%                ➤ `colorFailed` (souvent rouge)
+#  %cMP%               ➤ `colorMentionedPlayer` (souvent bleu clair)
+#  %fL%                ➤ Format des vies (ex: ♥)
+#  %fJ%                ➤ Format des sauts (ex: ⇪)
+#  %fPD%               ➤ Format des Perfects (ex: ★)
+
+# ── 🧠 PLACEHOLDERS INTELLIGENTS (singulier/pluriel) ────────────────
+# ➤ Format : %s:variable:singulier:pluriel%
+# ➤ Affiche automatiquement "1 joueur" ou "2 joueurs" selon la valeur
+# ➤ Variables disponibles : etaPlayers, eta (@DEPRECATED), lives, jumps, perfect
+# ➤ Exemples :
+#    %s:etaPlayers:joueur:joueurs%     → "1 joueur" ou "3 joueurs"
+#    %s:lives:vie:vies%                → "1 vie" ou "2 vies"
+#    %s:eta:seconde:secondes%          → "0 seconde" ou "15 secondes"
+
+# ── ✅ EXEMPLES D’UTILISATION DANS LE SCOREBOARD ───────────────────
+#    - "§6 » Vies: §f%s:lives:vie:vies%"
+#    - "§6 » Tour dans: §f%s:etaPlayers:joueur:joueurs%"
+#    - "§6 » Statut: %playerStatus%"
+#    - "§6 » Super Jump: %superJump%"
+
+scoreboard:
+  enabled: true # Valeur de base > true < (ne pas supprimer)
+  title: "§e§l➤ §6§lDROPPER §e§l◀" # Valeur de base > "§6§l➤ §e§lDROPPER §6§l◀" < (ne pas supprimer)
+  lines:
+    - ""
+    - "§6◇ Joueur §6- %cMP%%player%"
+    - "§6 » %cF%%lives%%fL% §e%jumps%%fJ% §6%perfect%%fPD%"
+    - ""
+    - "§6◇ Jeu §6- %cMP%%level%"
+    - "§6 » Statut: %playerStatus%"
+    - "§6 » Position: §f#%position%"
+    - "§6 » Tour dans: §f%s:etaPlayers:joueur:joueurs%"
+
+
+# Valeur de base >
+#  lines:
+#    - ""
+#    - "§6◇ Joueur §6- %cMP%%player%"
+#    - "§6 » %cF%%lives%%fL% §e%jumps%%fJ% §6%perfect%%fPD%"
+#    - ""
+#    - "§6◇ Jeu §6- %cMP%%level%"
+#    - "§6 » Statut: %playerStatus%"
+#    - "§6 » Position: §f#%position%"
+#    - "§6 » Tour dans: §f%s:etaPlayers:joueur:joueurs%"
+# < (ne pas supprimer)
+
+
+# --------------------
+# >> LEVELS <<
+# --------------------
+
+# Le nombre de vies que possède un joueur au début d’un niveau
+# /!\ ATTENTION /!\ Minimum = 1 (sinon impossible de jouer). Valeurs conseillées : 2 ou 3
+default_lives: 2 # Valeur de base > 2 < (ne pas supprimer)
+
+# Le temps (en secondes) qu’a un joueur pour effectuer son saut
+# /!\ ATTENTION /!\ Minimum = 3 secondes. Valeur conseillée : 5
+default_jump_time: 7 # Valeur de base > 7 < (ne pas supprimer)
+
+# Est-ce que le timer est "gentil" ?
+# Activé (true) : s’arrête à 0
+# Désactivé (false) : s’arrête à 1
+# /!\ NOTE : cela ajoute environ une seconde de différence perçue. Il est conseillé de le laisser à 'true'
+be_kind_with_players: true # Valeur de base > true < (ne pas supprimer)
+
+# --------------------
+# >> CONNECTION <<
+# --------------------
+
+# /!\ ATTENTION /!\ Cette section a été pensée pour l'équité et la jouabilité. Modifier avec parcimonie !
+
+# Nombre maximal de déconnexions avant élimination
+# /!\ ATTENTION /!\
+# - '0' = le joueur est éliminé directement après sa première déconnexion
+# - '-1' = déconnexions illimitées (non recommandé si 'super_jump_on_reconnection' est activé)
+max_disconnection: 2 # Valeur de base > 2 < (ne pas supprimer)
+
+# Nombre de tours manqués autorisés avant élimination
+# /!\ ATTENTION /!\
+# - '-1' = illimité (non conseillé)
+max_missed_turn: 3 # Valeur de base > 3 < (ne pas supprimer)
+
+# Le joueur reçoit-il un 'Super Jump' à la reconnexion ?
+# /!\ NOTE : si désactivé ('false'), 'give_super_jump_after_missed_turns' est ignoré
+super_jump_on_reconnection: true # Valeur de base > true < (ne pas supprimer)
+
+# Après combien de tours manqués un joueur reçoit-il un 'Super Jump' ?
+# /!\ ATTENTION /!\
+# - '-1' = désactivé
+# - '0' = donné dès la reconnexion
+# Pour désactiver complètement cette fonctionnalité, mettre super_jump_on_reconnection: false
+give_super_jump_after_missed_turns: 1 # Valeur de base > 1 < (ne pas supprimer)
+
+# --------------------
+# >> EXTRA <<
+# --------------------
+
+# Chance (en %) d’obtenir un SUPER JUMP en début de tour (valable pour tous les niveaux)
+# /!\ ATTENTION /!\
+# - N’oublie pas le '.0' à la fin du nombre
+# - 100.0 = 100% de chance (désactive les 'Perfect Drop' car le Super Jump les remplace)
+# - 0.0 = 0% de chance soit désactivé
+# * Explications :
+#   - Le Super Jump joue un son + animation
+#   - Si réussite : pose 5 blocs en croix (voir ci-dessous)
+#   - Si échec : retire 2 vies
+#   Forme des blocs posés :
+#     X  /  X
+#     /  X  /
+#     X  /  X
+#   ('X' = bloc posé, '/' = rien, eau ou bloc déjà existant)
+# /!\ NOTE : cette mécanique (placement de blocs / perte de vies) n'est pas modifiable pour préserver l'équilibre du jeu
+super_jump_chance: 10.0 # Valeur de base > 10.0 < (ne pas supprimer)
+
+# Active ou non les 'Perfect Drops'
+# * Explication : un Perfect Drop se produit si le joueur tombe dans l’eau entourée par 4 blocs (nord, sud, est, ouest)
+perfect_drops: true # Valeur de base > true < (ne pas supprimer)
+
+# Limite du nombre de Perfect Drops dans une partie
+# /!\ NOTE : mettre -1 pour aucune limite
+# Attention : peut devenir bruyant en fin de partie,
+# Attention 2 : peut rendre les parties très longues surtout si 'give_life_after_perfect_drop' est activé (déconseillé de mettre à -1)
+max_perfect_drop: 5 # Valeur de base > 5 < (ne pas supprimer)
+
+# Est-ce qu’un Perfect Drop donne une vie supplémentaire ?
+# /!\ ATTENTION /!\
+# - À utiliser avec 'max_perfect_drop' pour éviter des parties qui durent trop longtemps
+give_life_after_perfect_drop: true # Valeur de base > true < (ne pas supprimer)
+
+# Le bloc est-il aussi placé sur la tête du joueur pendant le jeu ?
+# /!\ NOTE : bien lire la section '>> BLOCKS <<' si activé
+block_on_head: true # Valeur de base > true < (ne pas supprimer)
+
+# --------------------
+# >> BLOCKS <<
+# --------------------
+
+# Liste des blocs utilisés lors d’un saut réussi.
+# Chaque joueur reçoit un bloc différent selon son index dans la rotation.
+# /!\ ATTENTION /!\
+# Éviter les blocs problématiques :
+#   - Trop bleus (comme LAPIS_LAZULI, invisible à distance)
+#   - Inappropriés (ex: lave, cloche, porte, ficelle...)
+#   - Demi-blocs (slabs, soul sand, etc.)
+# Ne pas mettre 'CARVED_PUMPKIN' si 'block_on_head' est activé (gêne visuelle importante)
+blocks:
+  # -- CONCRETE --
+  # - CYAN_CONCRETE  # (invisible à distance, déconseillé)
+  - WHITE_CONCRETE
+  - ORANGE_CONCRETE
+  - MAGENTA_CONCRETE
+  - YELLOW_CONCRETE
+  - LIME_CONCRETE
+  - PINK_CONCRETE
+  - GRAY_CONCRETE
+  - LIGHT_GRAY_CONCRETE
+  - PURPLE_CONCRETE
+  - BROWN_CONCRETE
+  - GREEN_CONCRETE
+  - RED_CONCRETE
+  - BLACK_CONCRETE
+
+  # -- LOGS --
+  - OAK_LOG
+  - SPRUCE_LOG
+  - BIRCH_LOG
+  - JUNGLE_LOG
+  - ACACIA_LOG
+  - DARK_OAK_LOG
+  - MANGROVE_LOG
+  - CHERRY_LOG
+  - WARPED_STEM
+  - CRIMSON_STEM
+  - BAMBOO_BLOCK
+
+  # -- STRIPPED LOGS --
+  - STRIPPED_OAK_LOG
+  - STRIPPED_SPRUCE_LOG
+  - STRIPPED_BIRCH_LOG
+  - STRIPPED_JUNGLE_LOG
+  - STRIPPED_ACACIA_WOOD
+  - STRIPPED_DARK_OAK_LOG
+  - STRIPPED_MANGROVE_LOG
+  - STRIPPED_CHERRY_LOG
+  - STRIPPED_WARPED_STEM
+  - STRIPPED_CRIMSON_STEM
+  - STRIPPED_BAMBOO_BLOCK

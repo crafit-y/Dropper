@@ -1,0 +1,19 @@
+name: Dropper
+version: '2.47-SNAPSHOT'
+main: fr.crafity.dropper.Dropper
+api-version: '1.21'
+authors: [ Crafity ]
+description: "A dropper plugin"
+
+commands:
+  dropper:
+    description: Affiche l’aide des commandes Dropper
+    usage: /dropper help
+  sys:
+    description: Gérer les paramètres d’un niveau (points, limites, vie, temps)
+    usage: /sys <levelName> <level/jump/limit1/limit2> <create/set/delete>
+
+permissions:
+  dropper.admin:
+    description: Permet d'utiliser toutes les commandes du plugin Dropper
+    default: op
